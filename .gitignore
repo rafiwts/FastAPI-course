@@ -5,3 +5,4 @@ include/
 Lib/
 Scripts/
 config.py
+for_training.py
