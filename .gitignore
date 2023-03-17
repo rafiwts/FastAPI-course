@@ -1,8 +1,9 @@
 # created by virtualenv automatically
 __pycache__
-.env
 include/
 Lib/
 Scripts/
+.env
 config.py
-for_training.py
+fortraining.py
+
