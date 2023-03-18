@@ -82,7 +82,7 @@ def delete_post(id: int, db: Session = Depends(get_db), current_user: int = Depe
 @router.put("/{id}", response_model=schema.Post)
 def update_post(id: int, post: schema.PostCreate, db: Session = Depends(get_db), current_user: int = Depends(authentication.get_current_user)):
     post_query = db.query(models.Post).filter(models.Post.id == id)
-    pdated_post = post_query.first()
+    updated_post = post_query.first()
 
     if updated_post == None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
