@@ -63,7 +63,6 @@ def get_post(id: int, db: Session = Depends(get_db), current_user: int = Depends
 @router.delete("/{id}", status_code= status.HTTP_204_NO_CONTENT)
 def delete_post(id: int, db: Session = Depends(get_db), current_user: int = Depends(authentication.get_current_user)):
     deleted_post = db.query(models.Post).filter(models.Post.id == id)
-
     post = deleted_post.first()
     
     if post == None:
@@ -83,8 +82,7 @@ def delete_post(id: int, db: Session = Depends(get_db), current_user: int = Depe
 @router.put("/{id}", response_model=schema.Post)
 def update_post(id: int, post: schema.PostCreate, db: Session = Depends(get_db), current_user: int = Depends(authentication.get_current_user)):
     post_query = db.query(models.Post).filter(models.Post.id == id)
-    
-    updated_post = post_query.first()
+    pdated_post = post_query.first()
 
     if updated_post == None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,

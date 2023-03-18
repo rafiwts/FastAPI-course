@@ -7,6 +7,7 @@ router = APIRouter(
     tags=["Vote"]
 )
 
+
 @router.post("/", status_code=status.HTTP_201_CREATED)
 def vote(vote: schema.Vote, db: Session = Depends(database.get_db), current_user: int = Depends(authentication.get_current_user)):
 
