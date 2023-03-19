@@ -3,6 +3,7 @@ __pycache__
 include/
 Lib/
 Scripts/
+greenlet.h
 .env
 config.py
 fortraining.py
