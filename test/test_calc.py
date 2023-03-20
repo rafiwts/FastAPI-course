@@ -46,3 +46,18 @@ def test_bank_transaction(zero_bank_account):
 
 def test_add(num1, num2, expected):
     assert add(num1, num2) == expected
+
+@pytest.mark.parametrize("deposited, withdrew, expected",[
+    (200, 100, 100),
+    (50, 10, 40),
+    (1200, 200, 1000),
+])
+def test_bank_transaction(zero_bank_account, deposited, withdrew, expected):
+    zero_bank_account.deposit(deposited)
+    zero_bank_account.withdraw(withdrew)
+    assert zero_bank_account.balance == expected
+
+def test_insufficient_funds(regular_bank_account):
+    with pytest.raises(Exception):
+        regular_bank_account.withdraw(1200)
+
