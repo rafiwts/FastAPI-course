@@ -32,6 +32,12 @@ def test_interest(regular_bank_account):
     regular_bank_account.balance == 1100
 
 
+def test_bank_transaction(zero_bank_account):
+    zero_bank_account.deposit(200)
+    zero_bank_account.withdraw(100)
+    assert zero_bank_account.balance == 100
+
+
 @pytest.mark.parametrize("num1, num2, expected", [
     (3, 2, 5),
     (10, 40, 50),
