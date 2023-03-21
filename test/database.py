@@ -19,7 +19,7 @@ TestingSessionLocal = sessionmaker(
 )
 
 
-@pytest.fixture(scope="module") # as a result the tables will not be dropped until the end of the session
+@pytest.fixture# as a result the tables will not be dropped until the end of the session
 def session():                  # so that we can login a user
     Base.metadata.drop_all(bind=engine) # deletes everything before running
     Base.metadata.create_all(bind=engine) # runs our code before we run our test - it creates tables
@@ -30,7 +30,7 @@ def session():                  # so that we can login a user
         db.close()
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture
 def client(session):  # db will be passed as a session parameter
     def override_get_db():
         try:

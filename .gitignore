@@ -3,10 +3,8 @@ __pycache__
 include/
 Lib/
 Scripts/
-greenlet.h
 .env
-test_calc.py
-test.py
 config.py
 fortraining.py
-
+calc.py
+test_calc.py
