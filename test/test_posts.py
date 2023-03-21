@@ -1,5 +1,5 @@
-from app import schema
 import pytest
+from app import schema
 
 
 def test_get_all_posts(authorized_client, test_posts):

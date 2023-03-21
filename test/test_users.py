@@ -4,7 +4,6 @@ from jose import jwt
 from.database import client, session
 from app.config import settings
 
-
 # def test_root(client):
 #     res = client.get("/")
 #     print(res.json().get('message'))
